@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Nubzor/scraping-node-example/issues"
   },
-  "homepage": "https://github.com/Nubzor/scraping-node-example#readme"
+  "homepage": "https://github.com/Nubzor/scraping-node-example#readme",
+  "dependencies": {
+    "jsdom": "^16.5.3"
+  }
 }

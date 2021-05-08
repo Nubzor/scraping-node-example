@@ -31,13 +31,13 @@ function writeToFile(content) {
     });
 }
 
-function getFromXPath(dom, XPath) {
+function getFromXPath(dom, xPath) {
     const { window } = dom;
     const { document } = window;
     
     // https://developer.mozilla.org/en-US/docs/Web/API/Document/evaluate
     // tl;dr it returns iterator for findings
-    return document.evaluate(XPath, document, null, window.XPathResult.ANY_TYPE, null);
+    return document.evaluate(xPath, document, null, window.XPathResult.ANY_TYPE, null);
 }
 
 JSDOM
@@ -52,9 +52,9 @@ JSDOM
 
         printNumberOfImgsAndTheirUrls(document);
 
-        const element = getFromXPath(dom, `//*[@id="mw-content-text"]/div[1]/p[51]`);
+        const xPathLocator = getFromXPath(dom, `//*[@id="mw-content-text"]/div[1]/p[51]`);
 
-        const paragraph = element.iterateNext();
+        const paragraph = xPathLocator.iterateNext();
 
         writeToFile(`Content paragrafu pod danym XPathem: ${paragraph && paragraph.textContent}`);
     })
